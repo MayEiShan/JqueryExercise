@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="Query.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
+$(document).ready(function(){
+                 var totalExpense=0;
+                 var totalBudget=0; 
+                 var amount=0;
+  $(".cal").click(function(){
+                var txt=$("#budget").val();
+                totalBudget+=parseInt(txt);
+                $("#dede").text("$"+totalBudget);
+                amount=totalBudget-totalExpense;
+                $("#dudu").text("$"+amount);
+          
+    });
+  $(".exp").click(function(){
+                var txt=$("#expense").val();
+                var ex=$("#expenseAmt").val();
+                var amt=parseInt($("#expenseAmt").val());
+                totalExpense+=amt;
+                $("#demo").text("$"+totalExpense);
+                var amount=totalBudget-totalExpense;
+                $("#dudu").text("$"+amount);
+      $("#expenseItem").append('<tr><td style="color:red;">'+txt+'</td><td style="color:red;">'+ex+'</td><td><i class="fa fa-edit" style="color:blue;"></i><i class="fa fa-trash" style="color:red;"></i>');        
+});
+});
+</script>
+</head>
+<body>
+    <h1>BUDGET APP</h1>
+      
+    <div class="grid-container">
+        <div class="grid-item">
+                
+    
+        <fieldset class="aa">
+             
+            <label for="budget"><b>Please Enter Your Budget</b></label>
+            <br><br>
+            <input type="text" id="budget" name="budget"><br><br>
+            <button type="button" color="green" class="cal">Calculate</button>
+       
+        </fieldset>
+    
+
+    </div>
+
+<div class="grid-item">
+
+
+   <h1>BUDGET</h1>
+   <i class="fa fa-money" aria-hidden="true" style="font-size:50px;color:blue;"></i>
+    <p id="dede" style="color:blue;font-size:large;"></p>
+
+
+
+</div> 
+<div class="grid-item">
+<h1>EXPENSES</h1><br>
+<i class="fa fa-credit-card" style="font-size:36px;color:blue;"></i>
+<p id="demo" style="color:red;font-size:large;"></p>
+
+</div>
+<div class="grid-item">
+<h1>BALANCE</h1><br>
+<i class="fa fa-dollar" style="font-size:50px;color:blue;"></i>
+<p id="dudu" style="color:blue;font-size:large;"></p>
+
+</div>
+<div class="grid-item">
+       
+<fieldset class="bb">
+             
+    <label for="expense"><b>Please Enter Your Expense</b></label>
+    <br><br>
+    <input type="text" id="expense" name="expense"><br><br>
+    <label for="expenseAmt"><b>Please Enter Expense Amount</b></label>
+    <br><br>
+    <input type="text" id="expenseAmt" name="expenseAmt"><br><br>
+    <button type="button" color="pink" class="exp">Add Expense</button>
+
+</fieldset>
+
+
+</div>
+<div class="grid-item" style="grid-column: 2/5;">
+<table>
+    <thead>
+        <tr><th>Expense Title</th>
+            <th>Expense Value</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="expenseItem">
+        
+    </tbody>
+   
+</table>
+
+</div>
+</div> 
+
+
+</body>
+</html>
